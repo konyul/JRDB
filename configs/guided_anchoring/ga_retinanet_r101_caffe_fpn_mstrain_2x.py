@@ -1,5 +1,3 @@
-_base_ = '../_base_/default_runtime.py'
-
 # model settings
 model = dict(
     type='RetinaNet',
@@ -164,4 +162,10 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-runner = dict(type='EpochBasedRunner', max_epochs=24)
+total_epochs = 24
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+work_dir = './work_dirs/ga_retinanet_r101_caffe_fpn_mstrain_2x'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]

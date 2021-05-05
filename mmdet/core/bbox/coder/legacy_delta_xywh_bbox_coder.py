@@ -1,4 +1,3 @@
-import mmcv
 import numpy as np
 import torch
 
@@ -80,7 +79,6 @@ class LegacyDeltaXYWHBBoxCoder(BaseBBoxCoder):
         return decoded_bboxes
 
 
-@mmcv.jit(coderize=True)
 def legacy_bbox2delta(proposals,
                       gt,
                       means=(0., 0., 0., 0.),
@@ -129,7 +127,6 @@ def legacy_bbox2delta(proposals,
     return deltas
 
 
-@mmcv.jit(coderize=True)
 def legacy_delta2bbox(rois,
                       deltas,
                       means=(0., 0., 0., 0.),

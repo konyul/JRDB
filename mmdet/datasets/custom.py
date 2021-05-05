@@ -85,6 +85,7 @@ class CustomDataset(Dataset):
                                               self.proposal_file)
         # load annotations (and proposals)
         self.data_infos = self.load_annotations(self.ann_file)
+        
 
         if self.proposal_file is not None:
             self.proposals = self.load_proposals(self.proposal_file)
@@ -155,6 +156,7 @@ class CustomDataset(Dataset):
                 'CustomDataset does not support filtering empty gt images.')
         valid_inds = []
         for i, img_info in enumerate(self.data_infos):
+            
             if min(img_info['width'], img_info['height']) >= min_size:
                 valid_inds.append(i)
         return valid_inds
@@ -222,8 +224,8 @@ class CustomDataset(Dataset):
             idx (int): Index of data.
 
         Returns:
-            dict: Testing data after pipeline with new keys introduced by \
-                pipeline.
+            dict: Testing data after pipeline with new keys intorduced by \
+                piepline.
         """
 
         img_info = self.data_infos[idx]
@@ -262,6 +264,7 @@ class CustomDataset(Dataset):
 
     def format_results(self, results, **kwargs):
         """Place holder to format result to dataset specific output."""
+        pass
 
     def evaluate(self,
                  results,

@@ -1,6 +1,5 @@
 import math
 
-import mmcv
 import torch
 import torch.nn as nn
 
@@ -9,7 +8,6 @@ from ..builder import LOSSES
 from .utils import weighted_loss
 
 
-@mmcv.jit(derivate=True, coderize=True)
 @weighted_loss
 def iou_loss(pred, target, linear=False, eps=1e-6):
     """IoU loss.
@@ -36,7 +34,6 @@ def iou_loss(pred, target, linear=False, eps=1e-6):
     return loss
 
 
-@mmcv.jit(derivate=True, coderize=True)
 @weighted_loss
 def bounded_iou_loss(pred, target, beta=0.2, eps=1e-3):
     """BIoULoss.
@@ -82,7 +79,6 @@ def bounded_iou_loss(pred, target, beta=0.2, eps=1e-3):
     return loss
 
 
-@mmcv.jit(derivate=True, coderize=True)
 @weighted_loss
 def giou_loss(pred, target, eps=1e-7):
     r"""`Generalized Intersection over Union: A Metric and A Loss for Bounding
@@ -102,7 +98,6 @@ def giou_loss(pred, target, eps=1e-7):
     return loss
 
 
-@mmcv.jit(derivate=True, coderize=True)
 @weighted_loss
 def diou_loss(pred, target, eps=1e-7):
     r"""`Implementation of Distance-IoU Loss: Faster and Better
@@ -157,7 +152,6 @@ def diou_loss(pred, target, eps=1e-7):
     return loss
 
 
-@mmcv.jit(derivate=True, coderize=True)
 @weighted_loss
 def ciou_loss(pred, target, eps=1e-7):
     r"""`Implementation of paper `Enhancing Geometric Factors into

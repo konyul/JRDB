@@ -28,6 +28,7 @@ def parse_args():
         '--no-validate',
         action='store_true',
         help='whether not to evaluate the checkpoint during training')
+    parser.add_argument('--lr')
     group_gpus = parser.add_mutually_exclusive_group()
     group_gpus.add_argument(
         '--gpus',
@@ -81,6 +82,7 @@ def parse_args():
         args.cfg_options = args.options
 
     return args
+
 
 
 def main():
@@ -181,7 +183,6 @@ def main():
         validate=(not args.no_validate),
         timestamp=timestamp,
         meta=meta)
-
 
 if __name__ == '__main__':
     main()

@@ -81,6 +81,7 @@ class BaseRoIHead(nn.Module, metaclass=ABCMeta):
                       gt_masks=None,
                       **kwargs):
         """Forward function during training."""
+        pass
 
     async def async_simple_test(self, x, img_meta, **kwargs):
         """Asynchronized test function."""
@@ -94,6 +95,7 @@ class BaseRoIHead(nn.Module, metaclass=ABCMeta):
                     rescale=False,
                     **kwargs):
         """Test without augmentation."""
+        pass
 
     def aug_test(self, x, proposal_list, img_metas, rescale=False, **kwargs):
         """Test with augmentations.
@@ -101,3 +103,4 @@ class BaseRoIHead(nn.Module, metaclass=ABCMeta):
         If rescale is False, then returned bboxes and masks will fit the scale
         of imgs[0].
         """
+        pass
